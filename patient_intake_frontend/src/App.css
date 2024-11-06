@@ -1,0 +1,809 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+
+:root {
+  --logo-color: #1eafb3;
+  --White-Color: #fff;
+  --black-Color: #000;
+  --black-Color90: #111;
+  --black-Color60: #666;
+  --alto-Color: #d9d9d9;
+  --Dusty-Gray: #9f9d9d;
+  --Catskill-White: #f1f5f9;
+  --Casal-Color: #2d5a6c;
+  --section-bg: #f5f5f5;
+
+  --Rhino-color: #2d455d;
+  --White-Color: #fff;
+  --Black-Color: #000;
+
+  /* Buttons Color */
+  --main-Blue-btn: #058bd3;
+  --royal-Green-btn: #244856;
+  --Dove-Gray-btn: #727272;
+  --Eastern-Blue: #1eafb3;
+}
+
+body {
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.custom-primary-color {
+  color: var(--logo-color);
+}
+
+.logoColorBtn {
+  background: var(--logo-color);
+  color: var(--White-Color);
+  border: 0px;
+  box-shadow: 0px 0px 4px -5px gray;
+  transition: 0.2s ease-in-out;
+}
+.logoColorBtn:hover {
+  background: var(--black-Color);
+  color: var(--White-Color);
+  transition: 0.2s ease-in-out;
+}
+.logoColorBtn:disabled {
+  background: var(--alto-Color);
+  color: var(--black-Color60);
+}
+
+.josefin-sans-navbar {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.logo {
+  max-height: 50px;
+  margin: 0;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-facebook-cover {
+  width: 100%;
+}
+.btn-facebook {
+  background-color: #3b5998;
+  color: white;
+  padding: 10px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-facebook:hover {
+  background-color: #2d4373;
+}
+
+.btn-google {
+  background-color: #dd4b39;
+  color: white;
+  padding: 10px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-google:hover {
+  background-color: #c23321;
+}
+
+.orWith {
+  display: flex;
+  justify-content: center;
+}
+
+.topHeader {
+  background: #fff;
+  box-shadow: 0 0 6px #ccc;
+  position: sticky;
+  top: 0px;
+  z-index: 9;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.topHeader .respMenuBtn,
+.topHeader .menuList li.dropArrow > span{display:none;}
+
+.topHeader .menuList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  align-items: center;
+  list-style: none;
+  gap: 5px;
+  margin: 0px;
+  padding: 0px;
+}
+.topHeader .menuList a,
+.topHeader .menuList .dropdown .dropdown-toggle {
+  color: #000;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  position: relative;
+  line-height:25px;
+}
+
+.topHeader .menuList > li a:hover:before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #1eafb3;
+  top: 100%;
+  left: 0px;
+}
+
+.topHeader .menuList > li.dropArrow > a {
+  padding-right: 25px;
+}
+.topHeader .menuList > li.dropArrow > a:after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 3px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 6px 0 6px;
+  border-color: var(--logo-color) transparent transparent transparent;
+}
+
+.topHeader .menuList li {
+  position: relative;
+  list-style: none;
+}
+.topHeader .menuList li > .subMenu {
+  display: none;
+  position: absolute;
+  padding: 0px;
+  width: 225px;
+  background: var(--White-Color);
+  border-radius: 6px;
+  top: 100%;
+  left: -30px;
+}
+
+.topHeader .menuList li:hover > .subMenu {
+  display: block;
+}
+
+
+.menuList .active:before{content:""; position:absolute; height:2px; width:100%; background:#1eafb3; top:100%; left:0px;}
+
+
+.user-icon {
+  font-size: 1.4rem !important;
+  /* color: var(--black-Color60); */
+}
+
+.workflow{padding:80px 0;}
+.workflow .vertical-timeline::before{background:var(--logo-color); top:45px; height:80%;}
+
+/* .vertical-timeline-element:nth-child(odd) .vertical-timeline-element-content.bounce-in{background:#000;} */
+.workflow .vertical-timeline-element-content.bounce-in{border-radius:0px;}
+
+.clientSay {
+  background: #f5f5f5;
+  padding: 50px 0;
+}
+.clientSay .imgBox {
+  text-align: center;
+  position: relative;
+  padding: 40px 20px 20px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ddd;
+  background: var(--White-Color);
+  /* border: 1px solid #1eafb3; */
+}
+.clientSay .imgBox p {
+  font-size: 15px;
+  margin: 0px;
+  color: var(--black-Color60);
+}
+.clientSay .imgBox h3 {
+  font-size: 18px;
+  line-height: 28px;
+}
+.clientSay .imgBox img {
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  margin-left: -30px;
+  border: 5px solid #fff;
+  /* box-shadow:0 0 5px #DDD; */
+}
+
+.smsServices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.faqPage {
+  padding: 80px;
+  background: var(--section-bg);
+  border-radius: 10px;
+}
+.faqPage .titleFaq {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.faqPage .accordion-item,
+.faqPage .accordion-item:first-of-type {
+  border: 0px;
+}
+.faqPage .accordion-item {
+  border-top: 1px solid var(--logo-color);
+  padding: 0 20px;
+}
+.faqPage .accordion-button {
+  background: none;
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 10px;
+  font-size: 20px;
+}
+.faqPage .accordion-body {
+  padding: 0 0 20px;
+  color: var(--black-Color60);
+}
+
+.outBoxWhite {
+  background: #fff;
+  border: 1px solid #e9e5e5;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Lexend Deca", sans-serif;
+}
+.inLightGry {
+  background: #f5f5f5;
+  border: 1px solid #d7d5d5;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.statusUser {
+}
+.statusUser p {
+  color: #313132;
+  margin: 0px;
+  font-size: 13px;
+}
+.statusUser span {
+  background: #dae9ff;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 5px 0 0;
+}
+
+.verifyList h3 {
+  color: #131313;
+  font-size: 20px;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  font-family: "Lexend Deca", sans-serif;
+  position: relative;
+}
+.verifyList h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 185px;
+  background: #1eafb3;
+}
+.verifyList ul {
+  margin: 0 0 30px;
+  padding: 0px;
+  list-style: none;
+}
+.verifyList ul > li {
+  position: relative;
+  padding-left: 40px;
+  margin: 20px 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-family: "Lexend Deca", sans-serif;
+}
+.verifyList ul > li:before {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background: #fff;
+  border: 2px solid #1eafb3;
+  left: 3px;
+  top: 0;
+}
+.verifyList ul > li.active:before {
+  background: url(../public/images/check.png) center center no-repeat;
+  border: 0px;
+  background-size: 25px 25px;
+  height: 30px;
+  width: 30px;
+  left: 0;
+}
+.verifyList ul > li.active {
+  font-weight: 500;
+}
+
+.verifyList ul > li li {
+  font-size: 16px;
+  font-weight: 400;
+  color: #444;
+}
+
+.animeBg {
+  position: relative;
+}
+
+.animeBg:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 310px;
+  width: 100%;
+  z-index: -1;
+  background: url(../public/images/workTitle-bg.png) no-repeat;
+  background-size: 1920px 310px;
+  animation: gradient-animation 18s ease infinite;
+}
+
+.btnSuccess,
+.btnSuccess:hover {
+  background: var(--logo-color);
+  color: var(--White-Color);
+}
+
+.howWork {
+  font-family: "Lexend Deca", sans-serif;
+}
+.howWork .videoContainer p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 35px;
+}
+.howWork .videoContainer h2 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.homepage {
+  background: var(--White-Color);
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.homeBanner {
+	padding: 50px 0 80px;
+}
+
+.homeBanner h2 {
+  font-size: 60px;
+  font-weight: 400;
+  color: var(--Black-Color);
+}
+.homeBanner h2 > span {
+  position: relative;
+}
+.homeBanner h2 > span::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  z-index: 0;
+  width: 100%;
+  background: rgba(30, 175, 179, 0.2);
+  left: 0px;
+  bottom: 0px;
+}
+.homeBanner p {
+  font-size: 20px;
+  font-weight: 400;
+  padding: 10px 0 0;
+}
+.homeBanner .btn {
+  background: var(--Eastern-Blue);
+  color: var(--White-Color);
+  border: 0px;
+  padding: 10px 30px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.homeBanner .carousel{max-width:none;}
+
+.homeBanner .carousel-control-next,
+.homeBanner .carousel-control-prev{display:none;}
+.homeBanner .carousel-indicators{gap:10px; margin-bottom:-40px;}
+.homeBanner .carousel-indicators button{background:#D2D7D7; height:15px; width:15px; padding:0; margin:0; border:0; border-radius:100%; opacity:1;}
+.homeBanner .carousel-indicators button.active{background:#848686;}
+
+
+
+
+.workTitle {
+  text-align: center;
+  height: 270px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background: url(../public/images/workTitle-bg.png);
+  background-size: 1920px 100%;
+  animation: gradient-animation 18s ease infinite;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.workTitle h3 {
+  font-size: 38px;
+  font-weight: 400;
+}
+
+.workList {
+  padding: 50px 0;
+}
+.workList li {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 50px;
+}
+.workList li:nth-child(even) {
+  justify-content: end;
+}
+.workList li img {
+  max-width: 100px;
+}
+.workList li .numBox {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  padding: 50px 70px;
+  background: #fff;
+  box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.1);
+}
+.workList li .numBox h3 {
+  color: #131313;
+  font-size: 28px;
+  position: relative;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+.workList li .numBox h3:after {
+  content: "";
+  background: #1eafb3;
+  height: 3px;
+  width: 100px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 5px;
+}
+.workList li .numBox p {
+  font-size: 16px;
+  line-height: 30px;
+  color: #333;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* .patientDr{background: var(--section-bg);} */
+.patientDr h3{font-size:36px; font-weight:600;}
+.patientDr p{font-size:16px; color:#333; line-height:30px;}
+
+.patientDr .alScribe {
+  border-radius: 0 50px 0 0;
+}
+
+.ourClient {
+  background: var(--section-bg);
+}
+
+.clientBox {
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 0 10px;
+  min-height: 291px;
+}
+.clientBox h3 {
+  font-size: 16px;
+  margin: 0;
+}
+.clientBox p {
+  font-size: 15px;
+  font-weight: 300;
+  color: #333;
+  margin: 0;
+}
+
+.myRecording h2 {
+  font-size: 24px;
+  text-align: center;
+  background: #474747;
+  padding: 20px 15px;
+  color: #fff;
+}
+
+.myRecording .patientCard {
+  padding: 20px;
+  background: #f8f8f8;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.myRecording .patientCard h4 {
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+.myRecording .patientCard p {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.myRecording .logoColorBtn {
+  font-weight: 600;
+  padding: 10px 28px;
+  font-size: 18px;
+}
+
+.patientSummary {
+  border-left: 1px solid #1eafb3;
+  border-right: 1px solid #1eafb3;
+}
+.patientSummary .card {
+  border: 0px;
+  border-radius: 0px;
+}
+.patientSummary .listItem {
+  padding: 6px 15px;
+  font-weight: 400;
+  font-size: 17px;
+}
+
+.patientSummary .itemBox {
+  border-top: 1px solid #1eafb3;
+  font-family: "Lexend Deca", sans-serif;
+}
+.patientSummary .itemBox:nth-child(odd) {
+  background: #eee;
+}
+.patientSummary .itemBox:last-child {
+  border-bottom: 1px solid #1eafb3;
+}
+.patientSummary .itemBox .card-footer {
+  background: none;
+  border: 0;
+  padding-top: 0px;
+  font-weight: 300;
+}
+.patientSummary .card-footer:empty {
+  display: none;
+}
+
+.conversationList .listItem {
+  list-style: none;
+}
+.conversationList .listItem .doctorIcon .name {
+  background: #1eafb3;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.conversationList .listItem .patientIcon .name {
+  background: #4abb71;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+
+.ourService{background:#F5F5F5; padding:80px 0 70px;}
+.ourService h1.heading{font-size:40px; font-weight:600; color:var(--Black-Color);}
+
+.ourService .servicesBox{background:var(--White-Color); border:1px solid #CDCDCD; border-radius:5px; padding:50px 40px;}
+.ourService .servicesBox h2{font-size:22px; font-weight:600; color:#000;}
+.ourService .servicesBox p{font-size:16px; font-weight:400; line-height:27px;}
+.ourService .btn{color:#222; border:1px solid #222; border-radius:5px; padding:6px 16px 8px;}
+.ourService .btn:hover{background:var(--logo-color); color:var(--White-Color); border-color:var(--White-Color);}
+
+
+footer .futTitle{font-size:22px; font-weight:600; border-bottom:1px solid #1eafb3; margin-bottom:15px; padding-bottom:12px;}
+
+footer .futLink,
+footer .contactUs {
+  padding: 0px;
+  margin: 0px;
+}
+
+footer .futLink a,
+footer .contactUs a {
+  text-decoration: none;
+  color: #131313;
+}
+
+footer .futLink li,
+footer .contactUs li {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 0;
+  font-size: 17px;
+  line-height: 22px;
+}
+
+footer .contactUs .icon {
+  font-size: 25px;
+  margin-right: 15px;
+  color: #1eafb3;
+}
+footer .contactUs li span {
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* ============= MEDIA CSS ============= */
+
+@media only screen and (max-width: 1199px) {
+  .logo {
+    max-height: 40px;
+    margin: 0;
+  }
+  .topHeader .menuList a {
+    font-size: 15px;
+    padding: 10px 8px;
+  }
+  .topHeader .menuList .dropdown a.dropdown-item {
+    padding: 6px 15px;
+  }
+  .homeBanner h2 {
+    font-size: 45px;
+    font-weight: 400;
+  }
+  .workList li .numBox {
+    width: 80%;
+    padding: 40px 60px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .patientDr .alScribe {
+    border-radius: 50px;
+  }
+  .workList li .numBox {
+    width: 90%;
+    padding: 20px 30px;
+  }
+  .workList li .numBox h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .topHeader .respMenuBtn{display:inline-block; padding:0px 15px 3px; border:0; background:#22b5b9; color:#FFF; font-size:24px; margin:auto; border-radius:4px;}
+  
+  .topHeader .menuList{display:none;}
+  .topHeader.active .menuList{display:block; position:absolute; right:0px; width:250px; background:#FFF; box-shadow:0 0 10px #DDD; padding:10px; border-radius:6px; top:40px;}
+  .topHeader .menuList li:hover > .subMenu,
+  .topHeader.active .menuList li > .subMenu{display:none; position:relative; width:auto; left:0; top:0;}
+  .topHeader.active .menuList li > .subMenu.active{display:block;}
+  .topHeader .menuList a{padding:8px;}
+  .topHeader .menuList li .subMenu a{padding:5px 5px 5px 20px; font-weight:400;}
+  
+  .topHeader .menuList .active:before,
+  .topHeader .menuList > li a:hover:before,
+  .topHeader .menuList > li.dropArrow > a::after{display:none;}
+  .topHeader .menuList li.dropArrow > span{display:block; position:absolute; top:7px; right:0; z-index:9; height:25px; width:26px; font-size:15px; text-align:center; line-height:23px; background:#f0f0f0; color:#000; border-radius:3px;}
+
+
+
+
+}
+
+@media only screen and (max-width: 767px) {
+  .workTitle {
+    height: 100px;
+    align-items: center;
+  }
+  .homeBanner h2 {
+    font-size: 40px;
+  }
+  .workList li {
+    margin-bottom: 30px;
+  }
+  .workList li .numBox {
+    width: 95%;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  .workList li .numBox p {
+    line-height: 25px;
+  }
+  .faqPage {
+    padding: 25px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .homeBanner h2 {
+    font-size: 30px;
+  }
+  .homeBanner img.banerMike {
+    width: 250px;
+  }
+
+  .faqPage {
+    padding: 20px;
+  }
+  .faqPage .accordion-button {
+    padding-right: 0px;
+    font-size: 18px;
+  }
+
+  .workList li img {
+    max-width: 80px;
+  }
+  .workList li .numBox {
+    padding: 20px 10px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+  .workList li .numBox h3::after {
+    left: 50%;
+    margin-left: -50px;
+  }
+}

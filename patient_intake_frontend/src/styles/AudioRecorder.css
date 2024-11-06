@@ -1,0 +1,65 @@
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 0.9rem; */
+  padding: 10px;
+  box-shadow: 1px 1px 10px -3px #808080db;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.doctor {
+  border-radius: 10px;
+  max-width: 75%;
+}
+
+.patient {
+  background-color: #fbfbfb;
+  border-radius: 10px;
+}
+
+.custom-primary {
+  background-color: #ff8989 !important;
+}
+
+.custom-secondary {
+  background-color: #cbcbcb;
+}
+
+.conversation-text {
+  font-size: 15px !important;
+  color: rgb(58, 58, 58);
+}
+
+.conversation-speaker-tag {
+  font-size: 16px !important;
+  font-weight: bolder;
+  margin-bottom: 2px;
+  color: rgb(37, 37, 37);
+}
+
+.conversation-card {
+  /* background-color: #fff8f8; */
+  padding: 10px 25px;
+  border-radius: 0.4rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.conversation-icon {
+  font-size: 1.5rem;
+  color: rgb(58, 58, 58);
+}
+
+.conversation-placeholder {
+  font-size: 0.8rem !important;
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

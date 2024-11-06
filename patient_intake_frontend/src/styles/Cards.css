@@ -1,0 +1,71 @@
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.cards {
+  /* display: block;
+    justify-content: space-around; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
+}
+
+.custom-card {
+  /* border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px; */
+  /* max-width: 350px; */
+  /* text-align: left; */
+  border: 1px solid #ccc;
+  border-radius: 12px; /* Adjust the border-radius for rounded corners */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 400px;
+  background: #f4f4f4;
+}
+
+.card-video {
+  max-width:100%;
+  width: 650px;
+  height: 350px;
+  /* text-align: left; */
+}
+
+.card-content {
+  /* margin-top: 10px;
+    text-align: right; */
+  margin-left: 20px;
+  text-align: left;
+}
+
+.card-content h3 {
+  padding-top: 0px;
+  font-size: 25px;
+}
+
+.card-content p {
+  color: #666;
+  font-size: 20px;
+}
+
+.schedule-demo {
+  text-align: center; /* Center align the button */
+  margin-top: 10px; /* Adjust spacing from above content */
+}
+
+.demoButton {
+  border-radius:33px;
+  background: var(--logo-color);
+  color: var(--White-Color);
+  padding: 12px 24px;
+  font-size: 22px;
+  border:0px;
+}
+
+
+.card-video.homeVideo{padding:20px; border:1px solid #c9c9c9; border-radius:10px; box-shadow:0 10px 20px #DDD;}
+
