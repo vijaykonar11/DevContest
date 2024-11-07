@@ -67,21 +67,21 @@ This project is designed to create a virtual assistant bot for real-time AI task
 
 1. **Install Dependencies**
     ```bash
-    pip install fastapi uvicorn loguru python-dotenv
+    pip install -r requirements.txt
     ```
 2. **Environment Variables**
     Create a `.env` file with the following keys:
     ```
     DAILY_API_KEY=your_daily_api_key
     OPENAI_API_KEY=your_openai_api_key
-    HOST_WHITELIST=allowed_host_1,allowed_host_2
+    
     ```
 3. **NVIDIA Riva Server**:
     - Ensure your Riva server is configured and accessible at the specified IP and port (default `0.0.0.0:50051`).
 
 4. **Run Server**
     ```bash
-    unicorn bot_runner:app --host 0.0.0.0 --port 8078
+    python bot_runner.py
     ```
 
 ## Running the Project

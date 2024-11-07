@@ -48,9 +48,6 @@ async def main(room_url, token, bot_config, user_id):
         rtai = RTVIProcessor(
             transport=transport,
             setup=RTVISetup(config=bot_config),
-            llm_api_key=os.getenv("GROQ_API_KEY", "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"),
-            # tts_api_key='sk_23e8207de3351fca5efdbc758782073c3059472c2dac2556'
-            tts_api_key=os.getenv("CARTESIA_API_KEY", "5576a17a-98e6-4728-b742-c70c938fc896")
         )
     except Exception as e:
         error_msg = f"Failed to initialize RTVIProcessor: {str(e)}"
