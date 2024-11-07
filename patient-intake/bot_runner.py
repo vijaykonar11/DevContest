@@ -2,7 +2,7 @@ import datetime
 import os
 import argparse
 import subprocess
-from model import *
+# from model import *
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -80,15 +80,15 @@ async def index(request: Request) -> JSONResponse:
             return JSONResponse({"test": True})
 
     except Exception as e:
-        if user_id:
-            error_log = ErrorLogs(
-                user_id=user_id,
-                error_msg=str(e),
-                function_name="index",
-                created_at=datetime.now(),
-                updated_at=datetime.now()
-            )
-            error_log.save()
+        # if user_id:
+        #     error_log = ErrorLogs(
+        #         user_id=user_id,
+        #         error_msg=str(e),
+        #         function_name="index",
+        #         created_at=datetime.now(),
+        #         updated_at=datetime.now()
+        #     )
+        #     error_log.save()
         raise HTTPException(
             status_code=500, detail="Missing configuration or malformed configuration object")
 
@@ -104,63 +104,63 @@ async def index(request: Request) -> JSONResponse:
             )
             room: DailyRoomObject = daily_rest_helper.create_room(params=params)
     except Exception as e:
-        if user_id:
-            error_log = ErrorLogs(
-                user_id=user_id,
-                error_msg=str(e),
-                function_name="index",
-                created_at=datetime.now(),
-                updated_at=datetime.now()
-            )
-            error_log.save()
+        # if user_id:
+        #     error_log = ErrorLogs(
+        #         user_id=user_id,
+        #         error_msg=str(e),
+        #         function_name="index",
+        #         created_at=datetime.now(),
+        #         updated_at=datetime.now()
+        #     )
+        #     error_log.save()
         raise HTTPException(
             status_code=500, detail=f"Failed to get or create room: {e}")
 
     token = daily_rest_helper.get_token(room.url, MAX_SESSION_TIME)
     if not room or not token:
-        if user_id:
-            error_log = ErrorLogs(
-                user_id=user_id,
-                error_msg="Failed to get token for room",
-                function_name="index",
-                created_at=datetime.now(),
-                updated_at=datetime.now()
-            )
-            error_log.save()
+        # if user_id:
+        #     error_log = ErrorLogs(
+        #         user_id=user_id,
+        #         error_msg="Failed to get token for room",
+        #         function_name="index",
+        #         created_at=datetime.now(),
+        #         updated_at=datetime.now()
+        #     )
+        #     error_log.save()
         raise HTTPException(
             status_code=500, detail=f"Failed to get token for room: {room.name}")
 
     try:
         subprocess.Popen(
-            [f"python3 -m bot -u {room.url} -t {token} -userid {user_id}"],
+            [f"python3 -m bot -u {room.url} -t {token}"],
             shell=True,
             bufsize=1
         )
     except Exception as e:
-        if user_id:
-            error_log = ErrorLogs(
-                user_id=user_id,
-                error_msg=str(e),
-                function_name="index",
-                created_at=datetime.now(),
-                updated_at=datetime.now()
-            )
-            error_log.save()
+        # if user_id:
+        #     error_log = ErrorLogs(
+        #         user_id=user_id,
+        #         error_msg=str(e),
+        #         function_name="index",
+        #         created_at=datetime.now(),
+        #         updated_at=datetime.now()
+        #     )
+        #     error_log.save()
         raise HTTPException(
             status_code=500, detail=f"Failed to start subprocess: {e}")
 
     try:
         user_token = daily_rest_helper.get_token(room.url, MAX_SESSION_TIME)
     except Exception as e:
-        if user_id:
-            error_log = ErrorLogs(
-                user_id=user_id,
-                error_msg=str(e),
-                function_name="index",
-                created_at=datetime.now(),
-                updated_at=datetime.now()
-            )
-            error_log.save()
+        # if user_id:
+        #     error_log = ErrorLogs(
+        #         user_id=user_id,
+        #         error_msg=str(e),
+        #         function_name="index",
+        #         created_at=datetime.now(),
+        #         updated_at=datetime.now()
+        #     )
+        #     error_log.save()
         raise HTTPException(
             status_code=500, detail="Failed to get user token")
 
