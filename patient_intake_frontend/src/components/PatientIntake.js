@@ -1,8 +1,6 @@
-import { end } from "@popperjs/core";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Col, Container, Figure, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import MikeRecordLogo from "../assets/mikeRecord.png";
-import { PiSignOutBold } from "react-icons/pi";
 import BotIcon from "../assets/plusIcon.png";
 
 import {
@@ -12,11 +10,9 @@ import {
   useVoiceClientTransportState,
   VoiceClientAudio,
 } from "realtime-ai-react";
+
 import { RateLimitError, VoiceEvent, TransportAuthBundleError } from "realtime-ai";
-import axios from "axios";
-import { IoIosCheckmarkCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const status_text = {
   idle: "Not connected",
@@ -229,8 +225,6 @@ const PatientIntake = () => {
   const [saved, setSaved] = useState(false);
   const [checkingApi, setCheckingApi] = useState(false);
 
-  const user = useSelector((state) => state?.userInfo?.user);
-
   useEffect(() => {
     if (
       intakeCheckList["date of birth"] !== null &&
@@ -328,31 +322,6 @@ const PatientIntake = () => {
       } else {
         setError("Unknown error occurred");
       }
-    }
-  };
-
-  const handleSave = async () => {
-    setLoading(true);
-    setError("");
-
-    const payload = { ...intakeCheckList, user_id: user?.id };
-    try {
-      const response = await axios.post(`${process.env.REACT_APP_API}/add-patient`, payload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      // if (response?.data?.status) {
-      // }
-
-      setSuccess("Saved successfully!");
-      setSaved(true);
-    } catch (err) {
-      console.log(err);
-      setError(err?.respone?.data?.message || err?.respone?.data?.error || "Something went wrong!");
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -506,7 +475,7 @@ const PatientIntake = () => {
                 error={error}
               />
             </Col>
-            <Col xl={4}>
+            {/* <Col xl={4}>
               <div className="outBoxWhite py-5 px-5">
                 <div className="verifyList">
                   <h3>Intake Checklist</h3>
@@ -552,7 +521,6 @@ const PatientIntake = () => {
               <div className="d-flex justify-content-around mt-5">
                 <button
                   className="btn btnSuccess"
-                  onClick={saved ? handleNew : handleSave}
                   disabled={loading || !checkEmptyIntake(intakeCheckList)}
                 >
                   {loading ? (
@@ -571,7 +539,7 @@ const PatientIntake = () => {
                   End
                 </button>
               </div>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </section>
