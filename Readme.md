@@ -8,7 +8,7 @@ This repository contains two projects:
 
 1. **patient-intake** - Backend for handling patient intake.
 2. **patient-intake-frontend** - Frontend interface for patient intake.
-3. **RIVA ASR Container
+3. **RIVA ASR Container** -RIVA ASR container already up and running
 
 ## Requirements
 
