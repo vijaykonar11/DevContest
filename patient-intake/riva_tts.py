@@ -1,9 +1,7 @@
 import uuid
 import asyncio
 import time
-
 from typing import AsyncGenerator
-
 from pipecat.processors.frame_processor import FrameDirection
 from pipecat.frames.frames import (
     Frame,
@@ -15,11 +13,8 @@ from pipecat.frames.frames import (
     LLMFullResponseEndFrame
 )
 from pipecat.services.ai_services import TTSService
-
 from loguru import logger
-
 import riva.client
-
 
 class RivaTTSService(TTSService):
 

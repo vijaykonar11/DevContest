@@ -10,8 +10,6 @@ This project is designed to create a virtual assistant bot for real-time AI task
 5. [Running the Project](#running-the-project)
 6. [Troubleshooting](#troubleshooting)
 
----
-
 ## Project Structure
 
 - **bot_runner.py**: Main server script for initializing FastAPI, managing API routes, and configuring Daily video/audio rooms.
@@ -84,7 +82,7 @@ This project is designed to create a virtual assistant bot for real-time AI task
     python bot_runner.py
     ```
 
-## Running the Project
+## Workflow Project
 
 1. **Start the FastAPI Server**
     - Run `bot_runner.py` to initialize the API and manage room creation.
@@ -99,3 +97,4 @@ This project is designed to create a virtual assistant bot for real-time AI task
 - **Room Creation Errors**: Check your Daily API key and room creation settings.
 - **Pipeline Errors**: Ensure all LLM models and dependencies are properly configured and accessible.
 - **Riva Connection**: Ensure that the Riva TTS server is running and accessible on the specified IP and port.
+- **en_core_web_sm**: python -m spacy download en_core_web_sm

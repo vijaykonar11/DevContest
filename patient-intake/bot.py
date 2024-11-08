@@ -1,8 +1,8 @@
 import argparse
 import asyncio
-import datetime
+# import datetime
 import sys
-import os
+# import os
 # from model import *
 from fastapi import HTTPException
 from pipecat.pipeline.pipeline import Pipeline
@@ -23,7 +23,7 @@ load_dotenv(override=True)
 logger.add(sys.stderr, level="DEBUG")
 
 
-async def main(room_url, token, bot_config, user_id):
+async def main(room_url, token, bot_config):
     function_name = "main_bot"
     
     try:
@@ -41,8 +41,7 @@ async def main(room_url, token, bot_config, user_id):
         )
     except Exception as e:
         error_msg = f"Failed to initialize DailyTransport: {str(e)}"
-        # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name=function_name, created_at=datetime.now(), updated_at=datetime.now()).save()
-        # raise HTTPException(status_code=500, detail=error_msg)
+        raise HTTPException(status_code=500, detail=error_msg)
 
     try:
         rtai = RTVIProcessor(
@@ -51,22 +50,19 @@ async def main(room_url, token, bot_config, user_id):
         )
     except Exception as e:
         error_msg = f"Failed to initialize RTVIProcessor: {str(e)}"
-        # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name=function_name, created_at=datetime.now(), updated_at=datetime.now()).save()
-        # raise HTTPException(status_code=500, detail=error_msg)
+        raise HTTPException(status_code=500, detail=error_msg)
 
     try:
         runner = PipelineRunner()
     except Exception as e:
         error_msg = f"Failed to initialize PipelineRunner: {str(e)}"
-        # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name=function_name, created_at=datetime.now(), updated_at=datetime.now()).save()
-        # raise HTTPException(status_code=500, detail=error_msg)
+        raise HTTPException(status_code=500, detail=error_msg)
 
     try:
         pipeline = Pipeline([transport.input(), rtai])
     except Exception as e:
         error_msg = f"Failed to initialize Pipeline: {str(e)}"
-        # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name=function_name, created_at=datetime.now(), updated_at=datetime.now()).save()
-        # raise HTTPException(status_code=500, detail=error_msg)
+        raise HTTPException(status_code=500, detail=error_msg)
 
     try:
         task = PipelineTask(
@@ -79,47 +75,39 @@ async def main(room_url, token, bot_config, user_id):
         )
     except Exception as e:
         error_msg = f"Failed to create PipelineTask: {str(e)}"
-        # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name=function_name, created_at=datetime.now(), updated_at=datetime.now()).save()
-        # raise HTTPException(status_code=500, detail=error_msg)
+        raise HTTPException(status_code=500, detail=error_msg)
 
     try:
         @transport.event_handler("on_first_participant_joined")
         async def on_first_participant_joined(transport, participant):
             try:
                 transport.capture_participant_transcription(participant["id"])
-                # logger.info("First participant joined")
             except Exception as e:
-                error_msg = f"Error in on_first_participant_joined: {str(e)}"
-                # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name="on_first_participant_joined", created_at=datetime.now(), updated_at=datetime.now()).save()
+                return f"Error in on_first_participant_joined: {str(e)}"
 
         @transport.event_handler("on_participant_left")
         async def on_participant_left(transport, participant, reason):
             try:
                 await task.queue_frame(EndFrame())
-                # logger.info("Participant left. Exiting.")
             except Exception as e:
-                error_msg = f"Error in on_participant_left: {str(e)}"
-                # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name="on_participant_left", created_at=datetime.now(), updated_at=datetime.now()).save()
+                return f"Error in on_participant_left: {str(e)}"
 
         @transport.event_handler("on_call_state_updated")
         async def on_call_state_updated(transport, state):
             try:
-                # logger.info("Call state %s " % state)
                 if state == "left":
                     await task.queue_frame(EndFrame())
             except Exception as e:
-                error_msg = f"Error in on_call_state_updated: {str(e)}"
-                # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name="on_call_state_updated", created_at=datetime.now(), updated_at=datetime.now()).save()
+                return f"Error in on_call_state_updated: {str(e)}"
+
     except Exception as e:
         error_msg = f"Error setting event handlers: {str(e)}"
-        # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name=function_name, created_at=datetime.now(), updated_at=datetime.now()).save()
         raise HTTPException(status_code=500, detail=error_msg)
 
     try:
         await runner.run(task)
     except Exception as e:
         error_msg = f"Error running PipelineTask: {str(e)}"
-        # ErrorLogs(user_id=user_id, error_msg=error_msg, function_name=function_name, created_at=datetime.now(), updated_at=datetime.now()).save()
         raise HTTPException(status_code=500, detail=error_msg)
 
 
@@ -130,7 +118,6 @@ if __name__ == "__main__":
         parser = argparse.ArgumentParser(description="RTVI Bot Example")
         parser.add_argument("-u", type=str, help="Room URL")
         parser.add_argument("-t", type=str, help="Token")
-        # parser.add_argument("-userid", type=str, help="User ID")
         config = parser.parse_args()
 
         config_for_llm = {
@@ -181,15 +168,12 @@ if __name__ == "__main__":
             bot_config = RTVIConfig(**config_for_llm["config"])
         except Exception as e:
             error_msg = f"Failed to parse bot configuration: {str(e)}"
-            # ErrorLogs(user_id=None, error_msg=error_msg, function_name=function_name, created_at=datetime.now(), updated_at=datetime.now()).save()
             raise HTTPException(status_code=500, detail=error_msg)
 
         if config.u and config.t:
-            # asyncio.run(main(config.u, config.t, bot_config))
-            asyncio.run(main(config.u, config.t, bot_config, '12345'))
+            asyncio.run(main(config.u, config.t, bot_config))
         else:
             logger.error("Room URL and Token are required")
     except Exception as e:
         error_msg = f"Error in _main_ block: {str(e)}"
-        # ErrorLogs(user_id=None, error_msg=error_msg, function_name=function_name, created_at=datetime.now(), updated_at=datetime.now()).save()
         raise HTTPException(status_code=500, detail=error_msg)
