@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { PiSignOutBold } from "react-icons/pi";
 import { Col, Container, Row } from "react-bootstrap";
 import MikeRecordLogo from "../assets/mikeRecord.png";
 import BotIcon from "../assets/plusIcon.png";
@@ -474,6 +475,13 @@ const PatientIntake = () => {
                 isBotConnected={isBotConnected}
                 error={error}
               />
+              <div className="d-flex justify-content-center align-items-center mt-4">
+                <button className="btn btn-dark" onClick={end} disabled={!isBotConnected}>
+                  <PiSignOutBold />
+                  <span className="ms-2"></span>
+                  End
+                </button>
+              </div>
             </Col>
             {/* <Col xl={4}>
               <div className="outBoxWhite py-5 px-5">
