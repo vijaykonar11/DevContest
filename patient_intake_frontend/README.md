@@ -50,19 +50,12 @@ Make sure you have the following installed:
 
 ### 2. Installation
 
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/vijaykonar11/DevContest
-   cd DevContest/patient_intake_frontend
-   ```
-
-2. **Install dependencies**:
+1.  **Install dependencies**:
    ```bash
    npm install
    ```
 
-### 3. Configure the Backend URL
+### 2. Configure the Backend URL
 
 In order to connect to the backend AI service, you need to specify the backend URL. Open the configuration file where the transport layer settings are defined, typically found at `.env`.
 
@@ -75,7 +68,7 @@ In order to connect to the backend AI service, you need to specify the backend U
 
 Make sure to replace `"http://localhost:8078"` with your actual backend URL.
 
-### 4. Start the Application
+### 3. Start the Application
 
 Once the configuration is set, you can start the application:
 
